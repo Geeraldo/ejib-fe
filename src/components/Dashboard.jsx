@@ -6,10 +6,9 @@ import WelcomeBanner from '../partials/dashboard/WelcomeBanner';
 import DashboardAvatars from '../partials/dashboard/DashboardAvatars';
 import FilterButton from '../partials/actions/FilterButton';
 import Datepicker from '../partials/actions/Datepicker';
-import DashboardCard01 from '../partials/dashboard/DashboardCard01';
-import Pemasukan from './Pemasukan'
-import DashboardCard02 from '../partials/dashboard/DashboardCard02';
-import DashboardCard03 from '../partials/dashboard/DashboardCard03';
+import Pemasukan from './Pemasukan';
+import Pengeluaran from './Pengeluaran';
+import Total from './Total';
 import DashboardCard04 from '../partials/dashboard/DashboardCard04';
 import DashboardCard05 from '../partials/dashboard/DashboardCard05';
 import DashboardCard06 from '../partials/dashboard/DashboardCard06';
@@ -72,11 +71,8 @@ function Dashboard() {
 
               {/* Line chart (Acme Plus) */}
               <Pemasukan />
-              <DashboardCard01 />
-              {/* Line chart (Acme Advanced) */}
-              <DashboardCard02 />
-              {/* Line chart (Acme Professional) */}
-              <DashboardCard03 />
+              <Pengeluaran />
+              <Total />
               {/* Bar chart (Direct vs Indirect) */}
               <DashboardCard04 />
               {/* Line chart (Real Time Value) */}
