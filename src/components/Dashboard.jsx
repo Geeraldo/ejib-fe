@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Sidebar from '../partials/Sidebar';
+import Sidebar from './Sidebar';
 import Header from '../partials/Header';
 import DashboardAvatars from '../partials/dashboard/DashboardAvatars';
 import FilterButton from '../partials/actions/FilterButton';
