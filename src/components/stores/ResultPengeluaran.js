@@ -14,7 +14,7 @@ const Store = createStore({
       () =>
         async ({ setState, getState }) => {
           setState({
-            isLoading: true,
+            // isLoading: true,
           });
 
           try {
@@ -28,6 +28,7 @@ const Store = createStore({
               });
             }
           } catch (err) {
+            console.log(err)
             setState({
               error: err && err.message ? err.response.message : 'Data not found',
             });
