@@ -4,6 +4,7 @@ import LineChart from '../charts/LineChart01';
 import Icon from '../images/icon-01.svg';
 import EditMenu from './EditMenu';
 import { useResultPengeluaran } from './stores';
+import { FormatRupiah } from "@arismun/format-rupiah";
 
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
@@ -16,7 +17,7 @@ function Pengeluaran() {
     actions.loadData();
   }, []);
 
-  console.log(state?.data?.data[0]);
+  console.log(state?.data?.data[0].total_pengeluaran);
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -89,7 +90,7 @@ function Pengeluaran() {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Pengeluaran</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Sales</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2">98,2342</div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={state?.data?.data[0].total_pengeluaran} /></div>
           <div className="text-sm font-semibold text-white px-1.5 bg-yellow-500 rounded-full">-14%</div>
         </div>
       </div>
