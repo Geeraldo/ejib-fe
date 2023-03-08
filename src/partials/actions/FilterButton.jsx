@@ -59,37 +59,37 @@ function FilterButton() {
             <li className="py-1 px-3">
               <label className="flex items-center">
                 <input type="checkbox" className="form-checkbox" />
-                <span className="text-sm font-medium ml-2">Direct VS Indirect</span>
+                <span className="text-sm font-medium ml-2">Musafir Kleak</span>
               </label>
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
                 <input type="checkbox" className="form-checkbox" />
-                <span className="text-sm font-medium ml-2">Real Time Value</span>
+                <span className="text-sm font-medium ml-2">Pniel Bahu</span>
               </label>
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
                 <input type="checkbox" className="form-checkbox" />
-                <span className="text-sm font-medium ml-2">Top Channels</span>
+                <span className="text-sm font-medium ml-2">Bukit Karmel Batukota</span>
               </label>
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
                 <input type="checkbox" className="form-checkbox" />
-                <span className="text-sm font-medium ml-2">Sales VS Refunds</span>
+                <span className="text-sm font-medium ml-2">Air Terang Maltasim</span>
               </label>
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
                 <input type="checkbox" className="form-checkbox" />
-                <span className="text-sm font-medium ml-2">Last Order</span>
+                <span className="text-sm font-medium ml-2">Yerusalem Batu Kota</span>
               </label>
             </li>
             <li className="py-1 px-3">
               <label className="flex items-center">
                 <input type="checkbox" className="form-checkbox" />
-                <span className="text-sm font-medium ml-2">Total Spent</span>
+                <span className="text-sm font-medium ml-2">Lembah Yordan Batu Kota</span>
               </label>
             </li>
           </ul>
