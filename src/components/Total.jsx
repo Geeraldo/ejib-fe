@@ -1,14 +1,24 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import LineChart from '../charts/LineChart01';
 import Icon from '../images/icon-01.svg';
 import EditMenu from './EditMenu';
+import { useResultPengeluaran,useResultPemasukan} from '../components/stores'
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
+import { FormatRupiah } from "@arismun/format-rupiah";
 
 
 function Total() {
-
+const [statePemasukan,actionsPemasukan ] = useResultPemasukan();
+const [statePengeluaran,actionsPengeluaran ] = useResultPengeluaran();
+useEffect(() => {
+  actionsPemasukan.loadData();
+  actionsPengeluaran.loadData();
+}, []);
+  const result_pemasukan = statePemasukan?.data?.data[0].total_pemasukan;
+  const result_pengeluaran = statePengeluaran?.data?.data[0].total_pengeluaran;
+  console.log(result_pengeluaran);
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -81,7 +91,7 @@ function Total() {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Total Saldo</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Sales</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2">$9,962</div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={200003} /></div>
           <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+49%</div>
         </div>
       </div>
