@@ -9,7 +9,7 @@ import Pemasukan from './Pemasukan';
 import Pengeluaran from './Pengeluaran';
 import Total from './Total';
 import Banner from './Banner';
-import DashboardCard04 from '../partials/dashboard/DashboardCard04';
+import Rekapan from './Rekapan';
 import DashboardCard05 from '../partials/dashboard/DashboardCard05';
 import DashboardCard06 from '../partials/dashboard/DashboardCard06';
 import DashboardCard07 from '../partials/dashboard/DashboardCard07';
@@ -73,7 +73,7 @@ function Dashboard() {
               <Pengeluaran />
               <Total />
               {/* Bar chart (Direct vs Indirect) */}
-              <DashboardCard04 />
+              <Rekapan />
               {/* Line chart (Real Time Value) */}
               <DashboardCard05 />
               {/* Doughnut chart (Top Countries) */}
