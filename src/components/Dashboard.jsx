@@ -10,6 +10,7 @@ import Pengeluaran from './Pengeluaran';
 import Total from './Total';
 import Banner from './Banner';
 import Rekapan from './Rekapan';
+import Recent from './Recent';
 import DashboardCard05 from '../partials/dashboard/DashboardCard05';
 import DashboardCard06 from '../partials/dashboard/DashboardCard06';
 import DashboardCard07 from '../partials/dashboard/DashboardCard07';
@@ -80,6 +81,9 @@ function Dashboard() {
               {/* Table (Top Channels) */}
               <DashboardCard07 />
               {/* Line chart (Sales Over Time) */}
+            </div>
+            <div className="grid grid-cols-12 w-full py-5">
+            <Recent />
             </div>
           </div>
         </main>
