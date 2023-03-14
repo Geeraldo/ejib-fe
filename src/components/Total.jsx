@@ -91,7 +91,7 @@ useEffect(() => {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Total Saldo</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Sales</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={200003} /></div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={1000000} /></div>
           <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+49%</div>
         </div>
       </div>
