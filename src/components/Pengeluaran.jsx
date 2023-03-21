@@ -88,10 +88,10 @@ function Pengeluaran() {
           </EditMenu>
         </header>
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Pengeluaran</h2>
-        <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Sales</div>
+        <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={1244444} /></div>
-          <div className="text-sm font-semibold text-white px-1.5 bg-yellow-500 rounded-full">-14%</div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={state?.data?.data[0].total_pengeluaran} /></div>
+          {/* <div className="text-sm font-semibold text-white px-1.5 bg-yellow-500 rounded-full">-14%</div> */}
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}

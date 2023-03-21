@@ -16,9 +16,10 @@ useEffect(() => {
   actionsPemasukan.loadData();
   actionsPengeluaran.loadData();
 }, []);
-  const result_pemasukan = statePemasukan?.data?.data[0].total_pemasukan;
-  const result_pengeluaran = statePengeluaran?.data?.data[0].total_pengeluaran;
-  console.log(result_pengeluaran);
+  const result_pemasukan    =  parseInt(statePemasukan?.data?.data[0].total_pemasukan);
+  const result_pengeluaran  =  parseInt(statePengeluaran?.data?.data[0].total_pengeluaran);
+  const total = result_pemasukan + result_pengeluaran
+  console.log(total)
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -88,11 +89,10 @@ useEffect(() => {
             </li>
           </EditMenu>
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 mb-2">Total Saldo</h2>
-        <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Sales</div>
+        <h2 className="text-lg font-semibold text-slate-800 mb-2">Jumlah</h2>
+        <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={1000000} /></div>
-          <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+49%</div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={total} /></div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
