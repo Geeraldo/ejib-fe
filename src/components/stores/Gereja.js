@@ -1,5 +1,5 @@
 import { createStore, createHook } from 'react-sweet-state';
-import { resultPemasukanAll } from '../api';
+import { ListAllGereja } from '../api';
 
 const Store = createStore({
   initialState: {
@@ -18,7 +18,7 @@ const Store = createStore({
           });
 
           try {
-            const res = await resultPemasukanAll(getState());
+            const res = await ListAllGereja(getState());
             if (res.data) {
               setState({
                 data: res.data,
@@ -35,7 +35,4 @@ const Store = createStore({
   },
 });
 
-export const useResultPemasukan = createHook(Store);
-
-
-
+export const useListGereja = createHook(Store);

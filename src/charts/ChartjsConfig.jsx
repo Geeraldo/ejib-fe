@@ -40,3 +40,5 @@ Chart.register({
     }
   },
 });
+
+

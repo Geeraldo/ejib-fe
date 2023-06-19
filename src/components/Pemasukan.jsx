@@ -15,7 +15,6 @@ function Pemasukan() {
   useEffect(() => {
     actions.loadData();
   }, []);
-  console.log(state?.data?.data[0].total_pemasukan);
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',

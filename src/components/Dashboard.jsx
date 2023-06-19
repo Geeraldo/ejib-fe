@@ -75,7 +75,6 @@ function Dashboard() {
               {/* Bar chart (Direct vs Indirect) */}
               <Rekapan />
               {/* Line chart (Real Time Value) */}
-              <DashboardCard05 />
               {/* Doughnut chart (Top Countries) */}
               <DashboardCard06 />
               {/* Table (Top Channels) */}
@@ -91,5 +90,6 @@ function Dashboard() {
     </div>
   );
 }
+
 
 export default Dashboard;
