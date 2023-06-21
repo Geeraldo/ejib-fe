@@ -37,9 +37,8 @@ function FilterButton() {
   return (
     <div className="relative inline-flex">
       <select>
-        <option>deedef</option>
-        <option>deedef</option>
-        <option>deedef</option>
+        <option value={1}>Imanuel Bahu</option>
+        <option  value={2}>Musafir Kleak</option>
       </select>
     </div>
   );
