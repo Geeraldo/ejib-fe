@@ -1,5 +1,5 @@
 import { createStore, createHook } from 'react-sweet-state';
-import { pengeluaran, resultPengeluaranAll } from '../api';
+import { recentPengeluaran } from '../api';
 
 const Store = createStore({
   initialState: {
@@ -11,12 +11,12 @@ const Store = createStore({
           setState(newState);
         },
     loadData:
-      (gerejaId) =>
+      () =>
       async ({ setState }) => {
         setState({ isLoading: true });
 
         try {
-          const res = await pengeluaran(gerejaId);
+          const res = await recentPengeluaran(setState);
           if (res.data) {
             setState({ data: res.data, isLoading: false });
           }
@@ -29,4 +29,4 @@ const Store = createStore({
   },
 });
 
-export const useResultPengeluaran = createHook(Store);
+export const useRecentPengeluaran = createHook(Store);

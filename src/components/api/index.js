@@ -9,6 +9,9 @@ export const resultPengeluaranAll = () =>
   export const pengeluaran = (gerejaId) =>
   apiClient.get(`transaction/result/pengeluaran/${gerejaId}`);
 
+  export const recentPengeluaran = () =>
+  apiClient.get(`transaction/recent/pengeluaran`);
+
 
 
   // get list all gereja name and id
