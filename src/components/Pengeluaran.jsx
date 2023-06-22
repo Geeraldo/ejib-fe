@@ -10,11 +10,14 @@ import { FormatRupiah } from "@arismun/format-rupiah";
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
 
 
-function Pengeluaran() {
+function Pengeluaran(props) {
 
+
+  const gerejaId = props.gerejaId
   const [state,actions ] = useResultPengeluaran();
+  console.log(state)
   useEffect(() => {
-    actions.loadData();
+    actions.loadData(gerejaId);
   }, []);
 
   console.log(state?.data?.data[0].total_pengeluaran);
