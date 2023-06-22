@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import LineChart from '../charts/LineChart01';
 import Icon from '../images/icon-01.svg';
 import EditMenu from './EditMenu';
-import { useResultPemasukan } from './stores';
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
+import { useListPemasukan } from './stores';
 
-function Pemasukan() {
-  const [state,actions ] = useResultPemasukan();
-  console.log(state);
+function Pemasukan(props) {
+  const gerejaId = props.gerejaId
+  const [state,actions ] = useListPemasukan();
   useEffect(() => {
-    actions.loadData();
+    actions.loadData(gerejaId);
   }, []);
   const chartData = {
     labels: [
@@ -87,7 +87,7 @@ function Pemasukan() {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Pemasukan</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={state?.data?.data[0].total_pemasukan} /></div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={state?.data?.data[0].total_pengeluaran} /></div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}

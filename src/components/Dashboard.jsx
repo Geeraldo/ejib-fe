@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useListGereja } from './stores';
 import Sidebar from './Sidebar';
 import Header from '../partials/Header';
 import DashboardAvatars from '../partials/dashboard/DashboardAvatars';
@@ -22,6 +22,24 @@ import DashboardCard12 from '../partials/dashboard/DashboardCard12';
 import DashboardCard13 from '../partials/dashboard/DashboardCard13';
 
 function Dashboard() {
+  const [state,actions ] = useListGereja();
+  useEffect(() => {
+    actions.loadData();
+  }, []);
+
+  const getInitialState = () => {
+    const value = "1";
+    return value;
+  };
+  const [gerejaId , setGerejaId] = useState("")
+  const handleChange = (e) => {
+    setGerejaId(e.target.value);
+  };
+  const option = state?.data?.data?.map((item, index) => (
+    <option key={index} value={item?.GerejaId}>{item?.KeteranganGereja}</option>
+	));
+
+
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -53,20 +71,13 @@ function Dashboard() {
               <div className="grid grid-flow-col sm:auto-cols-max justify-end sm:justify-end gap-2">
                 {/* Filter button */}
                 <div className="relative inline-flex">
-                  <select>
-                    <option value={1}>Imanuel Bahu</option>
-                    <option  value={2}>Musafir Kleak</option>
+                  <select onChange={handleChange}>
+                    {option}
                   </select>
                 </div>
                 {/* Datepicker built with flatpickr */}
-                <Datepicker />
+                {/* <Datepicker /> */}
                 {/* Add view button */}
-                <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                    <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
-                        <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                    </svg>
-                    {/* <span className="hidden xs:block ml-2">Add view</span> */}
-                </button>
               </div>
             </div>
 
@@ -74,8 +85,8 @@ function Dashboard() {
             <div className="grid grid-cols-12 gap-6">
 
               {/* Line chart (Acme Plus) */}
-              <Pemasukan />
-              <Pengeluaran />
+              <Pemasukan gerejaId={gerejaId}/>
+              <Pengeluaran gerejaId={gerejaId} />
               <Total />
               {/* Bar chart (Direct vs Indirect) */}
               <Rekapan />

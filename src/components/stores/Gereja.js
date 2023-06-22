@@ -3,6 +3,7 @@ import { ListAllGereja } from '../api';
 
 const Store = createStore({
   initialState: {
+    gerejaId: '1'
   },
   actions: {
     updateStore:

@@ -36,6 +36,3 @@ const Store = createStore({
 });
 
 export const useResultPemasukan = createHook(Store);
-
-
-
