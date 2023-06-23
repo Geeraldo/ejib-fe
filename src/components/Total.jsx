@@ -94,7 +94,7 @@ useEffect(() => {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Jumlah</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={total} /></div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={200000} /></div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
