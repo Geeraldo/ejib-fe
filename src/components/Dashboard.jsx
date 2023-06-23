@@ -87,7 +87,7 @@ function Dashboard() {
               {/* Line chart (Acme Plus) */}
               <Pemasukan gerejaId={gerejaId}/>
               <Pengeluaran gerejaId={gerejaId} />
-              <Total />
+              <Total gerejaId={gerejaId}  />
               {/* Bar chart (Direct vs Indirect) */}
               <Rekapan />
               {/* Line chart (Real Time Value) */}

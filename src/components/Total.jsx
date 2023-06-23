@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import LineChart from '../charts/LineChart01';
 import Icon from '../images/icon-01.svg';
 import EditMenu from './EditMenu';
-import { useResultPengeluaran,useResultPemasukan} from '../components/stores'
+// import { useResultPengeluaran,useResultPemasukan} from '../components/stores'
+import { useResultPengeluaran, useResultPemasukan } from './stores';
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 
-function Total() {
-const [statePemasukan,actionsPemasukan ] = useResultPemasukan();
-const [statePengeluaran,actionsPengeluaran ] = useResultPengeluaran();
+function Total(props) {
+const gerejaId = props.gerejaId
+const [statePemasukan,actionsPemasukan ] = useResultPemasukan(gerejaId);
+const [statePengeluaran,actionsPengeluaran ] = useResultPengeluaran(gerejaId);
 useEffect(() => {
   actionsPemasukan.loadData();
   actionsPengeluaran.loadData();

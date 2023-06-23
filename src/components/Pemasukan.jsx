@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LineChart from '../charts/LineChart01';
 import Icon from '../images/icon-01.svg';
 import EditMenu from './EditMenu';
-import { useResultPemasukan } from './stores';
+import { useResultPemasukan } from './stores/';
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 // Import utilities

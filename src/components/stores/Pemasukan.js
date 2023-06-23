@@ -30,7 +30,6 @@ const Store = createStore({
         }
       },
   },
-  name: 'Pemasukan',
 });
 
-export const useListPemasukan = createHook(Store);
+export const useResultPemasukan = createHook(Store);
