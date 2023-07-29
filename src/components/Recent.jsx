@@ -10,7 +10,6 @@ function Recent() {
   useEffect(() => {
     actions.loadData();
   }, []);
-  console.log(state?.data?.data)
   const recentPengeluaran = state?.data?.data.map((item, index) => (
     <li  key={index} className="flex px-2">
     <div className="w-9 h-9 rounded-full shrink-0 bg-indigo-500 my-2 mr-3">
@@ -26,6 +25,24 @@ function Recent() {
         </div>
       </div>
     </div>
+  </li>
+    // <option key={index} value={item?.GerejaId}>{item?.KeteranganGereja}</option>
+	));
+  const rencentPemasukan = state?.data?.data.map((item, index) => (
+    <li  key={index} className="flex px-2">
+        <div className="w-9 h-9 rounded-full shrink-0 bg-green-500 my-2 mr-3">
+                <svg className="w-9 h-9 fill-current text-green-50" viewBox="0 0 36 36">
+                  <path d="M15 13v-3l-5 4 5 4v-3h8a1 1 0 000-2h-8zM21 21h-8a1 1 0 000 2h8v3l5-4-5-4v3z" />
+                </svg>
+              </div>
+              <div className="grow flex items-center text-sm py-2">
+                <div className="grow flex justify-between">
+                <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">Sobat Kristus  </a>Pemasukan<a className="font-medium text-slate-800" href="#0"> Rp. 300.000 </a> Sumbangan Keluarga NN</div>
+                  <div className="shrink-0 self-end ml-2">
+                    <a className="font-medium text-indigo-500 hover:text-indigo-600" href="#0">View<span className="hidden sm:inline"> -&gt;</span></a>
+                  </div>
+                </div>
+              </div>
   </li>
     // <option key={index} value={item?.GerejaId}>{item?.KeteranganGereja}</option>
 	));

@@ -20,6 +20,8 @@ import DashboardCard10 from '../partials/dashboard/DashboardCard10';
 import DashboardCard11 from '../partials/dashboard/DashboardCard11';
 import DashboardCard12 from '../partials/dashboard/DashboardCard12';
 import DashboardCard13 from '../partials/dashboard/DashboardCard13';
+import BarChartPemasukan from "../charts/BarChartPemasukan";
+
 
 function Dashboard() {
   const [state,actions ] = useListGereja();
@@ -69,36 +71,29 @@ function Dashboard() {
 
               {/* Right: Actions */}
               <div className="grid grid-flow-col sm:auto-cols-max justify-end sm:justify-end gap-2">
-                {/* Filter button */}
                 <div className="relative inline-flex">
                   <select onChange={handleChange}>
                     {option}
                   </select>
                 </div>
-                {/* Datepicker built with flatpickr */}
-                {/* <Datepicker /> */}
-                {/* Add view button */}
               </div>
             </div>
 
             {/* Cards */}
             <div className="grid grid-cols-12 gap-6">
-
-              {/* Line chart (Acme Plus) */}
               <Pemasukan gerejaId={gerejaId}/>
               <Pengeluaran gerejaId={gerejaId} />
               <Total gerejaId={gerejaId}  />
-              {/* Bar chart (Direct vs Indirect) */}
-              <Rekapan />
-              {/* Line chart (Real Time Value) */}
-              {/* Doughnut chart (Top Countries) */}
+              {/*<Rekapan />*/}
+              <BarChartPemasukan />
               <DashboardCard06 />
-              {/* Table (Top Channels) */}
               <DashboardCard07 />
-              {/* Line chart (Sales Over Time) */}
             </div>
             <div className="grid grid-cols-12 w-full py-5">
             <Recent />
+            </div>
+            <div className="grid grid-cols-12 w-full py-5">
+              <BarChartPemasukan />
             </div>
           </div>
         </main>
