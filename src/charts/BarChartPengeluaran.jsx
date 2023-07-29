@@ -72,7 +72,6 @@ export default function BarChartPengeluaran(props) {
                                     <Tooltip />
                                     <Legend />
                                     <Bar dataKey="pv" fill="#6366F1" />
-                                    <Bar dataKey="uv" fill="#60A5FA" />
                                 </BarChart>
                     </ResponsiveContainer>
             </div>

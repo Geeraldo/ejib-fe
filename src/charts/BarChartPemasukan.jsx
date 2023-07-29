@@ -72,7 +72,6 @@ export default function BarChartPemasukan(props) {
                                     <Tooltip />
                                     <Legend />
                                     <Bar dataKey="pv" fill="#8D88EE" />
-                                    <Bar dataKey="uv" fill="#60A5FA" />
                                 </BarChart>
                     </ResponsiveContainer>
             </div>
