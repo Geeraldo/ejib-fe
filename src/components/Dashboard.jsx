@@ -21,6 +21,7 @@ import DashboardCard11 from '../partials/dashboard/DashboardCard11';
 import DashboardCard12 from '../partials/dashboard/DashboardCard12';
 import DashboardCard13 from '../partials/dashboard/DashboardCard13';
 import BarChartPemasukan from "../charts/BarChartPemasukan";
+import BarChartPengeluaran from '../charts/BarChartPengeluaran';
 
 
 function Dashboard() {
@@ -86,15 +87,16 @@ function Dashboard() {
               <Total gerejaId={gerejaId}  />
               {/*<Rekapan />*/}
               <BarChartPemasukan />
+              <BarChartPengeluaran />
               <DashboardCard06 />
               <DashboardCard07 />
             </div>
             <div className="grid grid-cols-12 w-full py-5">
             <Recent />
             </div>
-            <div className="grid grid-cols-12 w-full py-5">
+            {/* <div className="grid grid-cols-12 w-full py-5">
               <BarChartPemasukan />
-            </div>
+            </div> */}
           </div>
         </main>
       </div>
