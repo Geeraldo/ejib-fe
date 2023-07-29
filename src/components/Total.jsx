@@ -10,18 +10,12 @@ import { tailwindConfig, hexToRGB } from '../utils/Utils';
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 
-function Total(props) {
-const gerejaId = props.gerejaId
-const [statePemasukan,actionsPemasukan ] = useResultPemasukan(gerejaId);
-const [statePengeluaran,actionsPengeluaran ] = useResultPengeluaran(gerejaId);
-useEffect(() => {
-  actionsPemasukan.loadData();
-  actionsPengeluaran.loadData();
-}, []);
-  const result_pemasukan    =  parseInt(statePemasukan?.data?.data[0].total_pemasukan);
-  const result_pengeluaran  =  parseInt(statePengeluaran?.data?.data[0].total_pengeluaran);
-  const total = result_pemasukan + result_pengeluaran
-  console.log(total)
+function Total({pemasukan,pengeluaran}) {
+
+  const result_pemasukan    =  parseInt(pemasukan?.data[0].total);
+  const result_pengeluaran  =  parseInt(pengeluaran?.data[0].total_pengeluaran);
+  const total = result_pemasukan - result_pengeluaran
+  console.log("--total--",total)
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -94,7 +88,7 @@ useEffect(() => {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Jumlah</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={200000} /></div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={total} /></div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}

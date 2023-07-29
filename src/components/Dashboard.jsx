@@ -22,24 +22,55 @@ import DashboardCard12 from '../partials/dashboard/DashboardCard12';
 import DashboardCard13 from '../partials/dashboard/DashboardCard13';
 import BarChartPemasukan from "../charts/BarChartPemasukan";
 import BarChartPengeluaran from '../charts/BarChartPengeluaran';
+import axios from 'axios';
+import { useResultPemasukan } from './stores/pemasukan';
+
 
 
 function Dashboard() {
-  const [state,actions ] = useListGereja();
+  const [gerejaId , setGerejaId] = useState("")
+
+
+  const [statepemasukan,setStatepemasukan ] = useState()
+  const [statepengeluaran,setStatepengeluaran ] = useState()
+  const [statetotal,setTotal] = useState()
+  console.log("total-----",statetotal);
+
   useEffect(() => {
-    actions.loadData();
+
+    actions.loadData()
   }, []);
+  const [state,actions ] = useListGereja();
+
+
+
+
+
+
+
+
 
   const getInitialState = () => {
     const value = "1";
     return value;
   };
-  const [gerejaId , setGerejaId] = useState("")
   const handleChange = (e) => {
-    setGerejaId(e.target.value);
+    e.preventDefault();
+    const base_url_pemasukan = `http://localhost:4000/transaction/result/pemasukan/${e.target.value}`
+    const base_url_pengeluaran = `http://localhost:4000/transaction/result/pengeluaran/${e.target.value}`
+    axios.get(base_url_pemasukan).then((response) => {
+      setStatepemasukan(response.data);
+    });
+    axios.get(base_url_pengeluaran).then((response) => {
+      setStatepengeluaran(response.data);
+    });
   };
+
+
+
+
   const option = state?.data?.data?.map((item, index) => (
-    <option key={index} value={item?.GerejaId}>{item?.KeteranganGereja}</option>
+    <option key={index} value={item?.GerejaId} >{item?.KeteranganGereja}</option>
 	));
 
 
@@ -74,6 +105,7 @@ function Dashboard() {
               <div className="grid grid-flow-col sm:auto-cols-max justify-end sm:justify-end gap-2">
                 <div className="relative inline-flex">
                   <select onChange={handleChange}>
+                    <option value="">Pilih Gereja</option>
                     {option}
                   </select>
                 </div>
@@ -82,9 +114,9 @@ function Dashboard() {
 
             {/* Cards */}
             <div className="grid grid-cols-12 gap-6">
-              <Pemasukan gerejaId={gerejaId}/>
-              <Pengeluaran gerejaId={gerejaId} />
-              <Total gerejaId={gerejaId}  />
+              <Pemasukan data={statepemasukan}/>
+              <Pengeluaran data={statepengeluaran}/>
+              <Total pemasukan={statepemasukan} pengeluaran={statepengeluaran}  />
               {/*<Rekapan />*/}
               <BarChartPemasukan />
               <BarChartPengeluaran />

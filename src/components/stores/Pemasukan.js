@@ -13,13 +13,15 @@ const Store = createStore({
       async ({ setState }) => {
         setState(newState);
       },
-    loadData:
+    loadDatapemasukan:
       (gerejaId) =>
       async ({ setState }) => {
         setState({ isLoading: true });
 
         try {
-          const res = await pemasukan(gerejaId);
+          const res = await pemasukan(setState());
+          console.log(res);
+
           if (res.data) {
             setState({ data: res.data, isLoading: false });
           }

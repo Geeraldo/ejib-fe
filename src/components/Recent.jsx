@@ -6,7 +6,6 @@ import { FormatRupiah } from "@arismun/format-rupiah";
 function Recent() {
 
   const [state,actions ] = useRecentPengeluaran();
-  console.log(state)
   useEffect(() => {
     actions.loadData();
   }, []);

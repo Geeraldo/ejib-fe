@@ -9,13 +9,10 @@ import { FormatRupiah } from "@arismun/format-rupiah";
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
 
-function Pemasukan(props) {
-  const gerejaId = props.gerejaId
-  const [state,actions ] = useResultPemasukan();
-  console.log(state)
-  useEffect(() => {
-    actions.loadData(gerejaId);
-  }, []);
+function Pemasukan({data}) {
+  console.log(data?.data[0].total)
+  if(data === undefined) return null
+
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -88,7 +85,7 @@ function Pemasukan(props) {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Pemasukan</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={1000000} /></div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={data?.data[0].total} /></div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}

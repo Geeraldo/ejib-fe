@@ -4,7 +4,6 @@ import { useListGereja } from '../../components/stores';
 
 function FilterButton() {
   const [state,actions ] = useListGereja();
-  console.log(state);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 

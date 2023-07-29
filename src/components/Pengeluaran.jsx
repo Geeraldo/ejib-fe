@@ -10,17 +10,9 @@ import { FormatRupiah } from "@arismun/format-rupiah";
 import { tailwindConfig, hexToRGB } from '../utils/Utils';
 
 
-function Pengeluaran(props) {
+function Pengeluaran({data}) {
+console.log(data)
 
-
-  const gerejaId = props.gerejaId
-  const [state,actions ] = useResultPengeluaran();
-  console.log(state)
-  useEffect(() => {
-    actions.loadData(gerejaId);
-  }, []);
-
-  console.log(state?.data?.data[0].total_pengeluaran);
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -93,7 +85,7 @@ function Pengeluaran(props) {
         <h2 className="text-lg font-semibold text-slate-800 mb-2">Pengeluaran</h2>
         <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={state?.data?.data[0].total_pengeluaran} /></div>
+          <div className="text-3xl font-bold text-slate-800 mr-2"><FormatRupiah value={data?.data[0].total_pengeluaran} /></div>
           {/* <div className="text-sm font-semibold text-white px-1.5 bg-yellow-500 rounded-full">-14%</div> */}
         </div>
       </div>
