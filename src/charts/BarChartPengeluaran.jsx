@@ -1,9 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useMemo } from 'react';
+import { useEffect } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-export default function BarChartPengeluaran(props) {
 
-    const data = [
+export default function BarChartPengeluaran({data}) {
+
+    const dataCharts = useMemo(() => {
+		if (data === undefined) return [];
+		return data?.data?.map((item) => ({
+			name: item.Bulan,
+			total: item.total,
+		}));
+	}, [data]);
+    console.log(dataCharts);
+
+    const data121 = [
         {
             name: 'Januari',
             total: 1000,
@@ -12,48 +24,10 @@ export default function BarChartPengeluaran(props) {
         {
             name: 'Febuari',
             total: 2000,
-        },
-        {
-            name: 'Maret',
-            total: 4000,
-        },
-        {
-            name: 'April',
-            total: 4000,
-        },
-        {
-            name: 'Mei',
-            total: 4000,
-        },
-        {
-            name: 'Juni',
-            total: 8000,
-        },
-        {
-            name: 'Juli',
-            total: 4000,
-        },
-        {
-            name: 'Agustus',
-            total: 500,
-        },
-        {
-            name: 'September ',
-            total: 4000,
-        },
-        {
-            name: 'Oktober ',
-            total: 4000,
-        },
-        {
-            name: 'November ',
-            total: 4000,
-        },
-        {
-            name: 'Desember ',
-            total: 4000,
-        },
-    ];
+        },]
+
+
+
     return (
         <>
             <div className="flex flex-col col-span-full sm:col-span-12 bg-white shadow-lg rounded-sm border border-slate-200">
@@ -64,7 +38,7 @@ export default function BarChartPengeluaran(props) {
                                 <BarChart
                                     width={500}
                                     height={300}
-                                    data={data}
+                                    data={dataCharts}
                                     margin={{
                                         top: 5,
                                         right: 30,

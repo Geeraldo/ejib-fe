@@ -33,7 +33,9 @@ function Dashboard() {
 
   const [statepemasukan,setStatepemasukan ] = useState()
   const [statepengeluaran,setStatepengeluaran ] = useState()
+  const [statechartpengeluaran,setStatechartpengeluaran ] = useState()
   const [statetotal,setTotal] = useState()
+  console.log(statechartpengeluaran)
   console.log("total-----",statetotal);
 
   useEffect(() => {
@@ -58,12 +60,16 @@ function Dashboard() {
     e.preventDefault();
     const base_url_pemasukan = `http://localhost:4000/transaction/result/pemasukan/${e.target.value}`
     const base_url_pengeluaran = `http://localhost:4000/transaction/result/pengeluaran/${e.target.value}`
+    const base_url_chart_pengeluaran = `http://localhost:4000/transaction/chart/pengeluaran/${e.target.value}`
     axios.get(base_url_pemasukan).then((response) => {
       console.log(response)
       setStatepemasukan(response.data);
     });
     axios.get(base_url_pengeluaran).then((response) => {
       setStatepengeluaran(response.data);
+    });
+    axios.get(base_url_chart_pengeluaran).then((response) => {
+      setStatechartpengeluaran(response.data);
     });
   };
 
@@ -119,8 +125,8 @@ function Dashboard() {
               <Pengeluaran data={statepengeluaran}/>
               <Total pemasukan={statepemasukan} pengeluaran={statepengeluaran}  />
               {/*<Rekapan />*/}
-              <BarChartPemasukan />
-              <BarChartPengeluaran />
+              <BarChartPemasukan  />
+              <BarChartPengeluaran data={statechartpengeluaran} />
               <DashboardCard06 />
               <DashboardCard07 />
             </div>
