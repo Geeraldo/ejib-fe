@@ -59,6 +59,7 @@ function Dashboard() {
     const base_url_pemasukan = `http://localhost:4000/transaction/result/pemasukan/${e.target.value}`
     const base_url_pengeluaran = `http://localhost:4000/transaction/result/pengeluaran/${e.target.value}`
     axios.get(base_url_pemasukan).then((response) => {
+      console.log(response)
       setStatepemasukan(response.data);
     });
     axios.get(base_url_pengeluaran).then((response) => {

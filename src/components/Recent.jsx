@@ -2,12 +2,22 @@ import React from 'react';
 import {useState,useEffect} from 'react';
 import { useRecentPengeluaran } from './stores';
 import { FormatRupiah } from "@arismun/format-rupiah";
+import axios from 'axios';
+
+
 
 function Recent() {
+  const [stateRecentPemasukan , setstateRecentPemasukan] = useState("")
+  console.log(stateRecentPemasukan);
 
   const [state,actions ] = useRecentPengeluaran();
   useEffect(() => {
     actions.loadData();
+    const base_url_recent_pemasukan = `http://localhost:4000/transaction/recent/pemasukan`
+    axios.get(base_url_recent_pemasukan).then((response) => {
+      console.log(response)
+      setstateRecentPemasukan(response.data);
+    });
   }, []);
   const recentPengeluaran = state?.data?.data.map((item, index) => (
     <li  key={index} className="flex px-2">
@@ -27,7 +37,7 @@ function Recent() {
   </li>
     // <option key={index} value={item?.GerejaId}>{item?.KeteranganGereja}</option>
 	));
-  const rencentPemasukan = state?.data?.data.map((item, index) => (
+  const rencentPemasukan = stateRecentPemasukan?.data?.map((item, index) => (
     <li  key={index} className="flex px-2">
         <div className="w-9 h-9 rounded-full shrink-0 bg-green-500 my-2 mr-3">
                 <svg className="w-9 h-9 fill-current text-green-50" viewBox="0 0 36 36">
@@ -36,7 +46,7 @@ function Recent() {
               </div>
               <div className="grow flex items-center text-sm py-2">
                 <div className="grow flex justify-between">
-                <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">Sobat Kristus  </a>Pemasukan<a className="font-medium text-slate-800" href="#0"> Rp. 300.000 </a> Sumbangan Keluarga NN</div>
+                <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">{item.KeteranganGereja}  </a>Pemasukan<a className="font-medium text-slate-800" href="#0"> <FormatRupiah value={item?.total} />  </a></div>
                   <div className="shrink-0 self-end ml-2">
                     <a className="font-medium text-indigo-500 hover:text-indigo-600" href="#0">View<span className="hidden sm:inline"> -&gt;</span></a>
                   </div>
@@ -60,6 +70,7 @@ function Recent() {
           <ul className="my-1">
             {/* Item */}
             {recentPengeluaran}
+            {rencentPemasukan}
             {/* Item */}
             {/* <li className="flex px-2">
               <div className="w-9 h-9 rounded-full shrink-0 bg-rose-500 my-2 mr-3">
