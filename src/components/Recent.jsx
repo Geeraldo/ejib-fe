@@ -46,7 +46,7 @@ function Recent() {
               </div>
               <div className="grow flex items-center text-sm py-2">
                 <div className="grow flex justify-between">
-                <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">{item.KeteranganGereja}  </a>Pemasukan<a className="font-medium text-slate-800" href="#0"> <FormatRupiah value={item?.total} />  </a></div>
+                <div className="self-center"><a className="font-medium text-slate-800 hover:text-slate-900" href="#0">{item.KeteranganGereja}  </a>Setoran<a className="font-medium text-slate-800" href="#0"> <FormatRupiah value={item?.total} />  </a></div>
                   <div className="shrink-0 self-end ml-2">
                     <a className="font-medium text-indigo-500 hover:text-indigo-600" href="#0">View<span className="hidden sm:inline"> -&gt;</span></a>
                   </div>

@@ -5,28 +5,53 @@ export default function BarChartPemasukan(props) {
 
     const data = [
         {
-            name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
+            name: 'Januari',
+            total: 1000,
+
         },
         {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
+            name: 'Febuari',
+            total: 2000,
         },
         {
-            name: 'Page C',
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
+            name: 'Maret',
+            total: 4000,
         },
         {
-            name: 'Page C',
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
+            name: 'April',
+            total: 4000,
+        },
+        {
+            name: 'Mei',
+            total: 4000,
+        },
+        {
+            name: 'Juni',
+            total: 8000,
+        },
+        {
+            name: 'Juli',
+            total: 4000,
+        },
+        {
+            name: 'Agustus',
+            total: 500,
+        },
+        {
+            name: 'September ',
+            total: 4000,
+        },
+        {
+            name: 'Oktober ',
+            total: 4000,
+        },
+        {
+            name: 'November ',
+            total: 4000,
+        },
+        {
+            name: 'Desember ',
+            total: 4000,
         },
 
     ];
@@ -54,7 +79,7 @@ export default function BarChartPemasukan(props) {
                                     <YAxis />
                                     <Tooltip />
                                     <Legend />
-                                    <Bar dataKey="pv" fill="#8D88EE" />
+                                    <Bar dataKey="total" fill="#8D88EE" />
                                 </BarChart>
                     </ResponsiveContainer>
             </div>
